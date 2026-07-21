@@ -132,6 +132,21 @@ The `Forecasting/` directory runs advanced analytical pipelines:
 
 ---
 
+## 🖥️ Streamlit Web Dashboard Previews
+
+Below are live previews of the interactive Streamlit command center dashboard running in the browser:
+
+### 1. Executive Command Center & Operational KPIs
+![Executive Command Center KPIs](Assets/screenshots/dashboard_main.png)
+
+### 2. Live GIS Command Map & Mobility Analytics
+![Live GIS Command Map](Assets/screenshots/live_map.png)
+
+### 3. Environmental AQI Profile & Utilities Grid
+![Environmental & Utilities Grid](Assets/screenshots/air_utilities.png)
+
+---
+
 ## 📊 Power BI Executive Dashboard
 
 The `SmartCity.pbix` file is a premium corporate-grade reporting solution designed with the custom color theme configured in `Theme.json`.
