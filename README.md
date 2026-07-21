@@ -1,5 +1,9 @@
 # Smart City Digital Twin: Enterprise Command Center & Analytics Platform
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://amritanshu1968-wq-smart-city-digital-twin-app-dii0vm.streamlit.app/)
+
+🔗 **Live Web Application:** Experience the operational command center dashboard live in your browser: **[Smart City Digital Twin Command Center](https://amritanshu1968-wq-smart-city-digital-twin-app-dii0vm.streamlit.app/)**
+
 An end-to-end, enterprise-grade data warehouse and predictive analytics platform simulating a real-time Municipal Command Center. Built with Python (Pandas, NumPy, scikit-learn), SQL (SQLite / PostgreSQL), Power BI, and Git.
 
 Designed to demonstrate production-level skills in data engineering, DWH star-schema modeling, analytical SQL queries, time-series forecasting, anomaly detection, and corporate-standard BI dashboards.
