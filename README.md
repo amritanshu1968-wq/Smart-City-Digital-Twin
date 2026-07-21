@@ -77,7 +77,6 @@ Smart-City-Digital-Twin/
 │   └── Utilities/                 # Developer tools
 │       └── generate_diagrams.py   # Renders ERD/Architecture PNGs programmatically
 │
-├── LICENSE                        # MIT License
 ├── requirements.txt               # Project dependencies
 └── .gitignore
 ```
@@ -207,8 +206,3 @@ To view the command center, maps, forecasting models, and anomaly logs directly 
 streamlit run app.py
 ```
 This will open the dashboard in your default web browser (typically at `http://localhost:8501`).
-
----
-
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](file:///c:/Users/Amritanshu/OneDrive/Desktop/Smart-City-Digital-Twin/LICENSE) file for details.
