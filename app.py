@@ -107,6 +107,15 @@ ANOMALIES_PATH = BASE_DIR / "data" / "processed" / "iot_anomalies.csv"
 
 def query_db(query, params=()):
     if not DB_PATH.exists():
+        # Check if compressed database exists and extract it
+        zip_path = BASE_DIR / "database" / "smart_city.db.zip"
+        if zip_path.exists():
+            with st.spinner("📦 Extracting Smart City Digital Twin database (approx. 2 seconds)..."):
+                import zipfile
+                with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+                    zip_ref.extractall(BASE_DIR / "database")
+                    
+    if not DB_PATH.exists():
         st.error(f"❌ Database not found at {DB_PATH}. Please run python Python/Data_Generator/main.py first.")
         st.stop()
     conn = sqlite3.connect(DB_PATH)

@@ -31,6 +31,7 @@ Desktop.ini
 
 # Database
 database/
+!database/smart_city.db.zip
 *.db
 *.sqlite
 
