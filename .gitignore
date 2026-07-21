@@ -1,0 +1,42 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment variables
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Power BI backups
+*.pbix.autosave
+
+# Logs
+*.log
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Database
+database/
+*.db
+*.sqlite
+
+# Large generated datasets
+data/raw/iot_sensor_data.csv
+
+# Optional: Ignore all generated data
+# data/raw/
+# data/processed/

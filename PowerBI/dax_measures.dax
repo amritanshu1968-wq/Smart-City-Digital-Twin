@@ -1,0 +1,107 @@
+// =====================================================================
+// SMART CITY DIGITAL TWIN - POWER BI DAX MEASURES
+// Format: copy-paste directly into your Power BI Desktop Model.
+// =====================================================================
+
+// ---------------------------------------------------------------------
+// 1. Core KPIs
+// ---------------------------------------------------------------------
+
+Total Vehicles = 
+SUM(fact_traffic[Vehicle_Count])
+
+Average Speed = 
+AVERAGE(fact_traffic[Average_Speed])
+
+Average AQI = 
+AVERAGE(fact_air_quality[AQI])
+
+Total Electricity = 
+SUM(fact_electricity[Consumption])
+
+Total Water = 
+SUM(fact_water[Water_Consumed])
+
+Total Emergencies = 
+COUNT(fact_emergency[Emergency_ID])
+
+Emergency Response Time = 
+AVERAGE(fact_emergency[Response_Time])
+
+
+// ---------------------------------------------------------------------
+// 2. Sensor Metrics
+// ---------------------------------------------------------------------
+
+Total Sensors = 
+DISTINCTCOUNT(fact_iot[Sensor_ID])
+
+Online Sensors = 
+CALCULATE(
+    [Total_Sensors],
+    fact_iot[Status] IN { "Normal", "Warning" }
+)
+
+Critical Sensors = 
+CALCULATE(
+    [Total_Sensors],
+    fact_iot[Status] = "Critical"
+)
+
+
+// ---------------------------------------------------------------------
+// 3. Environmental & Performance Metrics
+// ---------------------------------------------------------------------
+
+Average Temperature = 
+AVERAGE(fact_weather[Temperature])
+
+Rainfall = 
+SUM(fact_weather[Rainfall])
+
+Peak Traffic = 
+CALCULATE(
+    [Total_Vehicles],
+    fact_traffic[Peak_Hour] = "Yes"
+)
+
+Water Leakage % = 
+DIVIDE(
+    SUM(fact_water[Leakage]),
+    SUM(fact_water[Water_Produced]),
+    0
+)
+
+Electricity Demand = 
+SUM(fact_electricity[Peak_Load])
+
+
+// ---------------------------------------------------------------------
+// 4. Growth & Change Percentages (Time Intelligence)
+// ---------------------------------------------------------------------
+
+Vehicle Growth % = 
+VAR PreviousPeriodVehicles = 
+    CALCULATE(
+        [Total_Vehicles],
+        DATEADD(dim_date[Date], -7, DAY)
+    )
+RETURN
+    DIVIDE(
+        [Total_Vehicles] - PreviousPeriodVehicles,
+        PreviousPeriodVehicles,
+        0
+    )
+
+AQI Change % = 
+VAR PreviousPeriodAQI = 
+    CALCULATE(
+        [Average AQI],
+        DATEADD(dim_date[Date], -1, MONTH)
+    )
+RETURN
+    DIVIDE(
+        [Average AQI] - PreviousPeriodAQI,
+        PreviousPeriodAQI,
+        0
+    )
